@@ -13,6 +13,6 @@ loop
 3
 5
 
-# We'll see some other `for` forms later when we look at
-# `range` statements, channels, and other data
-# structures.
+# Kasnije ćemo videti i ostale tipove `for` petlji
+# kada budemo gledali i `range`, kanale (channels), i ostale
+# strukture podataka.
