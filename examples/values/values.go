@@ -1,6 +1,7 @@
-// Go has various value types including strings,
-// integers, floats, booleans, etc. Here are a few
-// basic examples.
+// Go ima različite tipove vrednosti, neki od njih su: niske (strings),
+// ceo broj (integer), float, bulov tip (boolean), itd. Zarad
+// lakšeg sporazumevanja, često ćemo koristiti englicizovane reči.
+// Evo nekoliko primera:
 
 package main
 
@@ -8,14 +9,14 @@ import "fmt"
 
 func main() {
 
-	// Strings, which can be added together with `+`.
-	fmt.Println("go" + "lang")
+	// String-ovi mogu da se nadovezuju jedan na drugi pomoću `+`.
+	fmt.Println("go" + "jezik")
 
-	// Integers and floats.
+	// Celi i realni brojevi
 	fmt.Println("1+1 =", 1+1)
 	fmt.Println("7.0/3.0 =", 7.0/3.0)
 
-	// Booleans, with boolean operators as you'd expect.
+	// Boolean. Praktično važe ista pravila kao i u drugim programskim jezicima
 	fmt.Println(true && false)
 	fmt.Println(true || false)
 	fmt.Println(!true)

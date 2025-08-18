@@ -14,4 +14,4 @@ $ ./hello-world
 hello world
 
 # Sada kada znamo kako ispisati i napraviti jednostavan Go program, možemo
-# da se bacimo na teže stvari.
+# se baciti na teže stvari.
