@@ -1,9 +1,9 @@
 $ go run if-else.go
-7 is odd
-8 is divisible by 4
-either 8 or 7 are even
-9 has 1 digit
+7 je neparan
+8 je deljivo sa 4
+jedan od brojeva 8 ili 7 je paran
+9 ima jednu cifru
 
-# There is no [ternary if](https://en.wikipedia.org/wiki/%3F:)
-# in Go, so you'll need to use a full `if` statement even
-# for basic conditions.
+# U Go-u, [ternarno if](https://en.wikipedia.org/wiki/%3F:)
+# ne postoji, što znači da ćemo morati da koristimo 
+# ceo oblik if naredbe i za najjednostavnije provere.

@@ -13,6 +13,6 @@ loop
 3
 5
 
-# Kasnije ćemo videti i ostale tipove `for` petlji
-# kada budemo gledali i `range`, kanale (channels), i ostale
+# Kasnije ćemo pogledati i ostale tipove `for` petlji
+# kada budemo razmatrali `range`, kanale (channels), i ostale
 # strukture podataka.

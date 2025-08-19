@@ -1,7 +1,7 @@
 $ go run switch.go 
-Write 2 as two
-It's a weekday
-It's after noon
-I'm a bool
-I'm an int
-Don't know type string
+2  se piše kao dva
+Danas je vikend!
+Poslepodne je
+Ja sam bool
+Ja sam int
+Ne znam šta je string
