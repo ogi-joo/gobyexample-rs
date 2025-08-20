@@ -1,5 +1,5 @@
-# Note that while slices are different types than arrays,
-# they are rendered similarly by `fmt.Println`.
+# Primetimo da iako je slice drugačiji tip od niza,
+# slično su ispisani od strane `fmt.Println`.
 $ go run slices.go
 uninit: [] true true
 emp: [  ] len: 3 cap: 3
@@ -15,9 +15,9 @@ dcl: [g h i]
 t == t2
 2d:  [[0] [1 2] [2 3 4]]
 
-# Check out this [great blog post](https://go.dev/blog/slices-intro)
-# by the Go team for more details on the design and
-# implementation of slices in Go.
+# Ovaj [zanimljiv blog](https://go.dev/blog/slices-intro)
+# koga je napisao Go tim, ima više informacija o 
+# implementaciji i dizajniranju programa sa isečcima.
 
-# Now that we've seen arrays and slices we'll look at
-# Go's other key builtin data structure: maps.
+# Sada kada smo pogledali nizove i isečke, razmotrićemo
+# još jedan ugrađen tip vrednosti: mape, maps.
