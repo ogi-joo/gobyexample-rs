@@ -1,16 +1,16 @@
-// Go supports [_anonymous functions_](https://en.wikipedia.org/wiki/Anonymous_function),
-// which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-// Anonymous functions are useful when you want to define
-// a function inline without having to name it.
+// Go podržava [_anonimne funkcije_](https://sr.wikipedia.org/wiki/Anonimna_funkcija),
+// koje mogu da formiraju <a href="https://sr.wikipedia.org/wiki/%D0%97%D0%B0%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D1%9A%D0%B5_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5)"><em>closure</em></a>.
+// Anonimne funkcije su korisne kada želimo da definišemo
+// unutrašnju funkciju a da ne moramo da joj dodelimo naziv.
 
 package main
 
 import "fmt"
 
-// This function `intSeq` returns another function, which
-// we define anonymously in the body of `intSeq`. The
-// returned function _closes over_ the variable `i` to
-// form a closure.
+// Ova funkcija `intSeq` vraća drugu funkciju, koju
+// smo mi anonimno deklarisali u telu funkcije `intSeq`.
+// Vraćena funkcija _zatvara_ varijablu `i` i tako
+// formira closure.
 func intSeq() func() int {
 	i := 0
 	return func() int {
@@ -21,20 +21,20 @@ func intSeq() func() int {
 
 func main() {
 
-	// We call `intSeq`, assigning the result (a function)
-	// to `nextInt`. This function value captures its
-	// own `i` value, which will be updated each time
-	// we call `nextInt`.
+	// Zovemo `intSeq`, vezujući vrednost (funkciju)
+	// za `nextInt`. Ova funkcijska vrednost vezuje
+	// sopstvenu vrednost `i`, koja će biti ažurirana
+	// kada zovemo `nextInt`.
 	nextInt := intSeq()
 
-	// See the effect of the closure by calling `nextInt`
-	// a few times.
+	// Možemo videti mogućnosti closure-a zvanjem `nextInt`
+	// nekoliko puta.
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 	fmt.Println(nextInt())
 
-	// To confirm that the state is unique to that
-	// particular function, create and test a new one.
+	// Da proverimo da je kontekst jedinstven za tu
+	// partikularnu funkciju, možemo da napravimo novu varijablu.
 	newInts := intSeq()
 	fmt.Println(newInts())
 }
