@@ -1,31 +1,29 @@
-// _Functions_ are central in Go. We'll learn about
-// functions with a few different examples.
+// _Funkcije_ su centar Go jezika. Učićemo o
+// funkcijama uz pomoć nekoliko dobrih primera.
 
 package main
 
 import "fmt"
 
-// Here's a function that takes two `int`s and returns
-// their sum as an `int`.
+// Ovo je funkcija koja uzima dva `int`-a i vraća
+// njihov zbir tipa `int`.
 func plus(a int, b int) int {
 
-	// Go requires explicit returns, i.e. it won't
-	// automatically return the value of the last
-	// expression.
+	// U jeziku Go, moramo eksplicitno da navedemo
+	// tip koji vraćamo (return type). Dakle nije
+	// automatski izračunat na osnovu nekog izraza.
 	return a + b
 }
 
-// When you have multiple consecutive parameters of
-// the same type, you may omit the type name for the
-// like-typed parameters up to the final parameter that
-// declares the type.
+// Ako imamo dva ili više argumenata istog tipa, možemo
+// navesti na kraju niza kao:
 func plusPlus(a, b, c int) int {
 	return a + b + c
 }
 
 func main() {
 
-	// Call a function just as you'd expect, with
+	// Zovemo funkciju kao i u drugim jezicima
 	// `name(args)`.
 	res := plus(1, 2)
 	fmt.Println("1+2 =", res)
