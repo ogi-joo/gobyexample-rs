@@ -1,7 +1,7 @@
-// _range_ iterates over elements in a variety of
-// built-in data structures. Let's see how to
-// use `range` with some of the data structures
-// we've already learned.
+// _range_ iterira preko elemenata raznih ugrađenih
+// data struktura. Pogledaćemo kako da koristimo
+// `range` sa nekim od data struktura koje smo
+// već pominjali.
 
 package main
 
@@ -9,8 +9,8 @@ import "fmt"
 
 func main() {
 
-	// Here we use `range` to sum the numbers in a slice.
-	// Arrays work like this too.
+	// Ovde koristimo `range` da saberemo brojeve u slice-u.
+	// Nizovi se isto ponašaju.
 	nums := []int{2, 3, 4}
 	sum := 0
 	for _, num := range nums {
@@ -18,33 +18,31 @@ func main() {
 	}
 	fmt.Println("sum:", sum)
 
-	// `range` on arrays and slices provides both the
-	// index and value for each entry. Above we didn't
-	// need the index, so we ignored it with the
-	// blank identifier `_`. Sometimes we actually want
-	// the indexes though.
+	// `range` vraća dve vrednosti, indeks i
+	// vrednost na svakoj iteraciji. U gornjem bloku nije
+	// nam trebao indeks, pa smo ga ignorisali sa `_`.
+	// Ponekad su nam indeksi korisni.
 	for i, num := range nums {
 		if num == 3 {
 			fmt.Println("index:", i)
 		}
 	}
 
-	// `range` on map iterates over key/value pairs.
+	// `range` na mapi iterira preko key/value parova.
 	kvs := map[string]string{"a": "apple", "b": "banana"}
 	for k, v := range kvs {
 		fmt.Printf("%s -> %s\n", k, v)
 	}
 
-	// `range` can also iterate over just the keys of a map.
+	// `range` može da iterira i samo po ključevima na mapi.
 	for k := range kvs {
 		fmt.Println("key:", k)
 	}
 
-	// `range` on strings iterates over Unicode code
-	// points. The first value is the starting byte index
-	// of the `rune` and the second the `rune` itself.
-	// See [Strings and Runes](strings-and-runes) for more
-	// details.
+	// `range` na niskama (strings) iterira preko Unicode koda
+	// Ovde `range` vraća dve vrednosti, prva je index "rune",
+	// druga vrednost je `runa` (runa - int32 oblik Unicode-a).
+	// [Niske i Rune](strings-and-runes) za više detalja.
 	for i, c := range "go" {
 		fmt.Println(i, c)
 	}
