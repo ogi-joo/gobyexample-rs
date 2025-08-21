@@ -1,26 +1,24 @@
-// Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-// allowing you to pass references to values and records
-// within your program.
+// Go podržava <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pokazivače (pointers)</a></em>,
+// dopuštajući nam onda da koristimo zanimljive stvari kao reference.
 
 package main
 
 import "fmt"
 
-// We'll show how pointers work in contrast to values with
-// 2 functions: `zeroval` and `zeroptr`. `zeroval` has an
-// `int` parameter, so arguments will be passed to it by
-// value. `zeroval` will get a copy of `ival` distinct
-// from the one in the calling function.
+// Pokazaćemo kako pokazivači rade u odnosu na vrednosti
+// pomoću 2 funkcije: `zeroval` i `zeroptr`. `zeroval` ima
+// `int` parametar, dakle argumenti će joj se dodeljivati kao
+// vrednost. `zeroval` će dobiti kopiju `ival` koja nije
+// ista varijabla kao i u liniji gde se poziva ova funkcija.
 func zeroval(ival int) {
 	ival = 0
 }
 
-// `zeroptr` in contrast has an `*int` parameter, meaning
-// that it takes an `int` pointer. The `*iptr` code in the
-// function body then _dereferences_ the pointer from its
-// memory address to the current value at that address.
-// Assigning a value to a dereferenced pointer changes the
-// value at the referenced address.
+// Na drugu ruku, `zeroptr` ima `*int` parametar, što znači
+// da ona uzima `int` pokazivač. `*iptr` označava dereferenciranje.
+// Ovo u suštini znači: uzmi adresu `iptr` varijable i na toj adresi
+// menjaj vrednost. Ova funkcija ne menja kopiju već originalnu
+// vrednost varijable iz main() funkcije gde je zeroptr() pozvana.
 func zeroptr(iptr *int) {
 	*iptr = 0
 }
@@ -32,11 +30,11 @@ func main() {
 	zeroval(i)
 	fmt.Println("zeroval:", i)
 
-	// The `&i` syntax gives the memory address of `i`,
-	// i.e. a pointer to `i`.
+	// Sintaksa `&i` daje adresu varijable `i`,
+	// tj. pokazivač na `i`.
 	zeroptr(&i)
 	fmt.Println("zeroptr:", i)
 
-	// Pointers can be printed too.
+	// Pokazivači se takođe mogu ispisivati.
 	fmt.Println("pointer:", &i)
 }
