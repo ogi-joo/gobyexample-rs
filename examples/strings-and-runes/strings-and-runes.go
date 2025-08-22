@@ -1,11 +1,11 @@
-// A Go string is a read-only slice of bytes. The language
-// and the standard library treat strings specially - as
-// containers of text encoded in [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
-// In other languages, strings are made of "characters".
-// In Go, the concept of a character is called a `rune` - it's
-// an integer that represents a Unicode code point.
-// [This Go blog post](https://go.dev/blog/strings) is a good
-// introduction to the topic.
+// Niska (string) u Go-u je read-only slice bitova. Go jezik i
+// standardne biblioteke tretiraju niske na poseban način - kao
+// kontejnere teksta enkodovanih u [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
+// U drugim jezicima, niske su skupovi "karaktera".
+// U Go-u, kocept karaktera je drugačije poznat kao `rune`-a.
+// Runa je integer koji se predstavlja pomoću Unicode koda.
+// [Ovaj blog post](https://go.dev/blog/strings) je dobar uvod
+// na temu string-ova i runa.
 
 package main
 
@@ -16,56 +16,55 @@ import (
 
 func main() {
 
-	// `s` is a `string` assigned a literal value
-	// representing the word "hello" in the Thai
-	// language. Go string literals are UTF-8
-	// encoded text.
+	// `s` je `string` kome je dodeljena vrednost
+	// koja predstavlja reč "hello" na Tajlandskom.
+	// Go niske su UTF-8 enkodovane.
 	const s = "สวัสดี"
 
-	// Since strings are equivalent to `[]byte`, this
-	// will produce the length of the raw bytes stored within.
+	// Uzimajući u obzir da su niske tipa `[]byte`, ova linija
+	// će vratiti dužinu (length) niske tj. broj byte-ova.
 	fmt.Println("Len:", len(s))
 
-	// Indexing into a string produces the raw byte values at
-	// each index. This loop generates the hex values of all
-	// the bytes that constitute the code points in `s`.
+	// Indeksovanjem string-a, dobijamo sirove oblike karaktera
+	// na svakom indeksu. Ova petlja generiše hex (heksadecimalne)
+	// vrednosti byte-ova koji zajedno grade UTF-8 enkodovan `s`.
 	for i := 0; i < len(s); i++ {
 		fmt.Printf("%x ", s[i])
 	}
 	fmt.Println()
 
-	// To count how many _runes_ are in a string, we can use
-	// the `utf8` package. Note that the run-time of
-	// `RuneCountInString` depends on the size of the string,
-	// because it has to decode each UTF-8 rune sequentially.
-	// Some Thai characters are represented by UTF-8 code points
-	// that can span multiple bytes, so the result of this count
-	// may be surprising.
+	// Da bi pronašli broj _runa_ u nekom string-u, koristimo
+	// `utf8` paket. Imajmo na umu da vreme izvršenja funkcije
+	// `RuneCountInString` zavisi od veličine string-a,
+	// jer ona mora da dekodira UTF-8 rune sekvencijalno.
+	// Neki Tajlandski karakteri su reprezentovani UTF-8 kodovima
+	// koji sadrže više byte-a, pa nas ova funkcija može
+	// iznenaditi.
 	fmt.Println("Rune count:", utf8.RuneCountInString(s))
 
-	// A `range` loop handles strings specially and decodes
-	// each `rune` along with its offset in the string.
+	// `range` petlja iterira preko string-a na poseban način
+	// i vraća svaku `runu` zajedno sa indeksom u string-u.
 	for idx, runeValue := range s {
 		fmt.Printf("%#U starts at %d\n", runeValue, idx)
 	}
 
-	// We can achieve the same iteration by using the
-	// `utf8.DecodeRuneInString` function explicitly.
+	// Istu iteraciju možemo postići i pomoću funkcije
+	// `utf8.DecodeRuneInString` eksplicitno.
 	fmt.Println("\nUsing DecodeRuneInString")
 	for i, w := 0, 0; i < len(s); i += w {
 		runeValue, width := utf8.DecodeRuneInString(s[i:])
 		fmt.Printf("%#U starts at %d\n", runeValue, i)
 		w = width
 
-		// This demonstrates passing a `rune` value to a function.
+		// Ovde demonstriramo davanje `runa` vrednost funkciji.
 		examineRune(runeValue)
 	}
 }
 
 func examineRune(r rune) {
 
-	// Values enclosed in single quotes are _rune literals_. We
-	// can compare a `rune` value to a rune literal directly.
+	// Karakteri u jednostrukim navodnicima su _runa literali_.
+	// Možemo da upoređujemo `runa` vrednost sa runa literalom direktno.
 	if r == 't' {
 		fmt.Println("found tee")
 	} else if r == 'ส' {
