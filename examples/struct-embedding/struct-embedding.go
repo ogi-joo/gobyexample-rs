@@ -1,8 +1,8 @@
-// Go supports _embedding_ of structs and interfaces
-// to express a more seamless _composition_ of types.
-// This is not to be confused with [`//go:embed`](embed-directive) which is
-// a go directive introduced in Go version 1.16+ to embed
-// files and folders into the application binary.
+// Go podržava _embedovanje_ struktura i interfejsa
+// radi glađe _kompozicije_ tipova.
+// Ovo embedovanje ne bi trebalo pomešati sa [`//go:embed`](embed-directive)
+// Go direktivom dostupnom u verzijama 1.16+, koja služi za
+// embedovanje fajlova i foldera u binarni kod aplikacije.
 
 package main
 
@@ -16,8 +16,8 @@ func (b base) describe() string {
 	return fmt.Sprintf("base with num=%v", b.num)
 }
 
-// A `container` _embeds_ a `base`. An embedding looks
-// like a field without a name.
+// Struktura `container`, _embeduje_ `base`. Embedovanje liči
+// na polje bez naziva.
 type container struct {
 	base
 	str string
@@ -25,9 +25,9 @@ type container struct {
 
 func main() {
 
-	// When creating structs with literals, we have to
-	// initialize the embedding explicitly; here the
-	// embedded type serves as the field name.
+	// Kada kreiramo strukture sa vrednostima, moramo da
+	// inicijalizujemo embedovane strukture eksplicitno;
+	// ovde je naziv polja - tip embedovane strukture.
 	co := container{
 		base: base{
 			num: 1,
@@ -35,28 +35,26 @@ func main() {
 		str: "some name",
 	}
 
-	// We can access the base's fields directly on `co`,
-	// e.g. `co.num`.
+	// `base`-ina polja možemo pristupiti direktno preko `co`,
+	// npr. `co.num`.
 	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
 
-	// Alternatively, we can spell out the full path using
-	// the embedded type name.
+	// Alternativno, možemo da koristimo i punu putanju.
 	fmt.Println("also num:", co.base.num)
 
-	// Since `container` embeds `base`, the methods of
-	// `base` also become methods of a `container`. Here
-	// we invoke a method that was embedded from `base`
-	// directly on `co`.
+	// Kako `container` embeduje `base`, metode
+	// `base`-a takođe postaju i metode `container`-a.
+	// Ovo je primer.
 	fmt.Println("describe:", co.describe())
 
 	type describer interface {
 		describe() string
 	}
 
-	// Embedding structs with methods may be used to bestow
-	// interface implementations onto other structs. Here
-	// we see that a `container` now implements the
-	// `describer` interface because it embeds `base`.
+	// Embedovane strukture sa metodama se mogu koristiti za
+	// davanje implementacije interfejsa drugim strukturama.
+	// Ovde `container` sada implementira
+	// `describer` interfejs jer on embeduje `base`.
 	var d describer = co
 	fmt.Println("describer:", d.describe())
 }
