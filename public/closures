@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <a href="https://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="https://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
+            <p>Go podržava <a href="https://sr.wikipedia.org/wiki/Anonimna_funkcija"><em>anonimne funkcije</em></a>,
+koje mogu da formiraju <a href="https://sr.wikipedia.org/wiki/%D0%97%D0%B0%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D1%9A%D0%B5_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D1%9A%D0%B5)"><em>closure</em></a>.
+Anonimne funkcije su korisne kada želimo da definišemo
+unutrašnju funkciju a da ne moramo da joj dodelimo naziv.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ a function inline without having to name it.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/NpgpzS8ZG8y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/BcLJ7KXssQK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,10 +64,10 @@ a function inline without having to name it.</p>
         
         <tr>
           <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+            <p>Ova funkcija <code>intSeq</code> vraća drugu funkciju, koju
+smo mi anonimno deklarisali u telu funkcije <code>intSeq</code>.
+Vraćena funkcija <em>zatvara</em> varijablu <code>i</code> i tako
+formira closure.</p>
 
           </td>
           <td class="code leading">
@@ -94,10 +94,10 @@ form a closure.</p>
         
         <tr>
           <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+            <p>Zovemo <code>intSeq</code>, vezujući vrednost (funkciju)
+za <code>nextInt</code>. Ova funkcijska vrednost vezuje
+sopstvenu vrednost <code>i</code>, koja će biti ažurirana
+kada zovemo <code>nextInt</code>.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +108,8 @@ we call <code>nextInt</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
+            <p>Možemo videti mogućnosti closure-a zvanjem <code>nextInt</code>
+nekoliko puta.</p>
 
           </td>
           <td class="code leading">
@@ -122,8 +122,8 @@ a few times.</p>
         
         <tr>
           <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
+            <p>Da proverimo da je kontekst jedinstven za tu
+partikularnu funkciju, možemo da napravimo novu varijablu.</p>
 
           </td>
           <td class="code">
@@ -154,8 +154,8 @@ particular function, create and test a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>The last feature of functions we&rsquo;ll look at for now is
-recursion.</p>
+            <p>Poslednja karakteristika funkcija koju ćemo pogledati
+je rekurzija.</p>
 
           </td>
           <td class="code empty">

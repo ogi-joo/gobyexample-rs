@@ -30,9 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>U Go-u, <em>varijable</em> su eksplicitno deklarisane i korišćene
+od strane kompajlera da bi npr. pozivi funkcija bili <em>type-safe</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ calls.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/N5rWndIliJW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/wj7IML7bJZn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +72,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p><code>var</code> declares 1 or more variables.</p>
+            <p>Pomoću <code>var</code> deklarišemo 1 ili više varijabli.</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +84,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>You can declare multiple variables at once.</p>
+            <p>Možemo da deklarišemo više varijabli od jednom.</p>
 
           </td>
           <td class="code leading">
@@ -97,7 +96,8 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Za varijable definisane pomoću <code>var</code>, Go će automatski
+izvesti, <em>infer</em>, tip varijable u odnosu na tip inicijalne vrednosti.</p>
 
           </td>
           <td class="code leading">
@@ -109,9 +109,9 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+            <p>Varijable deklarisane bez početne vrednosti
+su nulte varijable, <em>zero-valued</em>. Na primer,
+nulta vrednost za <code>int</code> je <code>0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -123,10 +123,10 @@ zero value for an <code>int</code> is <code>0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;apple&quot;</code> in this case.
-This syntax is only available inside functions.</p>
+            <p>Sintaksa <code>:=</code> je skraćenica za istovremeno deklarisanje i
+inicijalizovanje varijable, npr. za
+<code>var f string = &quot;apple&quot;</code>.
+Ova sintaksa je validna samo unutar funkcija.</p>
 
           </td>
           <td class="code">

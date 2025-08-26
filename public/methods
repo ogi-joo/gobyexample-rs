@@ -30,7 +30,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>methods</em> defined on struct types.</p>
+            <p>Go podržava <em>metode</em> definisane na strukturi.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/4wmDCAydC1e"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/u0oCaPUWNIL"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +73,7 @@
         
         <tr>
           <td class="docs">
-            <p>This <code>area</code> method has a <em>receiver type</em> of <code>*rect</code>.</p>
+            <p>Ovaj metod <code>area</code> ima <em>receiver tip</em> <code>*rect</code>.</p>
 
           </td>
           <td class="code leading">
@@ -86,8 +86,9 @@
         
         <tr>
           <td class="docs">
-            <p>Methods can be defined for either pointer or value
-receiver types. Here&rsquo;s an example of a value receiver.</p>
+            <p>Metode mogu da se definišu i za pokazivače i za
+vrednosti receiver tipova. Evo jedan primer za vrednost
+resiver-a.</p>
 
           </td>
           <td class="code leading">
@@ -111,7 +112,7 @@ receiver types. Here&rsquo;s an example of a value receiver.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we call the 2 methods defined for our struct.</p>
+            <p>Ovde zovemo 2 metode definisane na našoj strukturi.</p>
 
           </td>
           <td class="code leading">
@@ -123,11 +124,10 @@ receiver types. Here&rsquo;s an example of a value receiver.</p>
         
         <tr>
           <td class="docs">
-            <p>Go automatically handles conversion between values
-and pointers for method calls. You may want to use
-a pointer receiver type to avoid copying on method
-calls or to allow the method to mutate the
-receiving struct.</p>
+            <p>Go automatski vrši konverziju između pokazivača i vrednosti
+za metode struktura. Ponekad možemo da koristimo
+pokazivač receiver-a da zaobiđemo kopiranje na pozivu metode
+ili dozvolimo metodi da menja strukturu koju dobija.</p>
 
           </td>
           <td class="code">
@@ -159,8 +159,8 @@ receiving struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at Go&rsquo;s mechanism for grouping and
-naming related sets of methods: interfaces.</p>
+            <p>Sledeće, gledamo Go-ov mehanizam za imenovanje i
+grupisanje relevantnih metoda: interfejs.</p>
 
           </td>
           <td class="code empty">

@@ -30,10 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Variadic_function"><em>Variadic functions</em></a>
-can be called with any number of trailing arguments.
-For example, <code>fmt.Println</code> is a common variadic
-function.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Variadic_function"><em>Varijadna funkcija</em></a>
+ili funkcija sa promenljivim brojem argumenata.
+Na primer, funkcija <code>fmt.Println</code> je klasična varijadna funkcija.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +46,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/glNdE8aKPNq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/WgXc1z82GEI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,8 +63,8 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that will take an arbitrary number
-of <code>int</code>s as arguments.</p>
+            <p>Ovo je funkcija koja će primiti promenljiv broj atributa
+tipa <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -78,9 +77,9 @@ of <code>int</code>s as arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Within the function, the type of <code>nums</code> is
-equivalent to <code>[]int</code>. We can call <code>len(nums)</code>,
-iterate over it with <code>range</code>, etc.</p>
+            <p>Unutar funkcije, tip varijable <code>nums</code> je jednak
+tipu <code>[]int</code>. Možemo da zovemo <code>len(nums)</code>,
+iteriramo pomoću <code>range</code>, itd.</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +104,8 @@ iterate over it with <code>range</code>, etc.</p>
         
         <tr>
           <td class="docs">
-            <p>Variadic functions can be called in the usual way
-with individual arguments.</p>
+            <p>Varijadne funkcije se klasično zovu
+sa zarezima izmedju vrednosti.</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +117,9 @@ with individual arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>If you already have multiple args in a slice,
-apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+            <p>Ako već imamo više vrednosti u slice-u,
+možemo da ih pozovemu u funkciji kao ovde.
+Primetimo <code>nums...</code></p>
 
           </td>
           <td class="code">
@@ -150,8 +149,10 @@ apply them to a variadic function using
         
         <tr>
           <td class="docs">
-            <p>Another key aspect of functions in Go is their ability
-to form closures, which we&rsquo;ll look at next.</p>
+            <p>Još jedna zanimljiva karakteristika Go funkcija je
+mogućnost <em>closure</em>-a, nemamo srpski prevod ali se misli na funkcije
+koje pamte kontekst iz kruženja u kojem su definisane.
+Najbolje se shvate kroz primere koje ćemo sada pogledati.</p>
 
           </td>
           <td class="code empty">
