@@ -30,9 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go podržava <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pokazivače (pointers)</a></em>,
+dopuštajući nam onda da koristimo zanimljive stvari kao reference.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ within your program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/OlWCLpxAyBz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/OAaAzKNjuKn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,11 +62,11 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>Pokazaćemo kako pokazivači rade u odnosu na vrednosti
+pomoću 2 funkcije: <code>zeroval</code> i <code>zeroptr</code>. <code>zeroval</code> ima
+<code>int</code> parametar, dakle argumenti će joj se dodeljivati kao
+vrednost. <code>zeroval</code> će dobiti kopiju <code>ival</code> koja nije
+ista varijabla kao i u liniji gde se poziva ova funkcija.</p>
 
           </td>
           <td class="code leading">
@@ -80,12 +79,11 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p>Na drugu ruku, <code>zeroptr</code> ima <code>*int</code> parametar, što znači
+da ona uzima <code>int</code> pokazivač. <code>*iptr</code> označava dereferenciranje.
+Ovo u suštini znači: uzmi adresu <code>iptr</code> varijable i na toj adresi
+menjaj vrednost. Ova funkcija ne menja kopiju već originalnu
+vrednost varijable iz main() funkcije gde je zeroptr() pozvana.</p>
 
           </td>
           <td class="code leading">
@@ -121,8 +119,8 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p>Sintaksa <code>&amp;i</code> daje adresu varijable <code>i</code>,
+tj. pokazivač na <code>i</code>.</p>
 
           </td>
           <td class="code leading">
@@ -134,7 +132,7 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Pointers can be printed too.</p>
+            <p>Pokazivači se takođe mogu ispisivati.</p>
 
           </td>
           <td class="code">
@@ -150,9 +148,9 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> ne menja <code>i</code> u <code>main</code>-u, ali
+<code>zeroptr</code> menja jer predstavlja referencu
+na memorijsku adresu te varijable.</p>
 
           </td>
           <td class="code">

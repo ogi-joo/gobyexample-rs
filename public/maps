@@ -30,8 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Maps</em> are Go&rsquo;s built-in <a href="https://en.wikipedia.org/wiki/Associative_array">associative data type</a>
-(sometimes called <em>hashes</em> or <em>dicts</em> in other languages).</p>
+            <p><em>Mape</em> su ugrađeni Go tipovi, drugačije poznati kao <a href="https://sr.wikipedia.org/wiki/%D0%90%D1%81%D0%BE%D1%86%D0%B8%D1%98%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B8_%D0%BD%D0%B8%D0%B7">asocijativni nizovi</a>
+(ponekad zvani i <em>hash</em> ili rečnici, <em>dicts</em>, u drugim programskim jezicima).
+key - ključ, val (value) - vrednost</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +46,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/5jpkxJ2T0Lv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/OPdW3eujmVn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,7 +76,7 @@
         
         <tr>
           <td class="docs">
-            <p>To create an empty map, use the builtin <code>make</code>:
+            <p>Da bi napravili praznu mapu, koristimo ugrađen <code>make</code>:
 <code>make(map[key-type]val-type)</code>.</p>
 
           </td>
@@ -87,8 +88,8 @@
         
         <tr>
           <td class="docs">
-            <p>Set key/value pairs using typical <code>name[key] = val</code>
-syntax.</p>
+            <p>Postavljamo key/value parove koristeći <code>name[key] = val</code>
+sintaksu.</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +101,8 @@ syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>Printing a map with e.g. <code>fmt.Println</code> will show all of
-its key/value pairs.</p>
+            <p>Ispisivanje mape uz pomoć <code>fmt.Println</code> će ispisati sve
+key/value parove.</p>
 
           </td>
           <td class="code leading">
@@ -112,7 +113,8 @@ its key/value pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>Get a value for a key with <code>name[key]</code>.</p>
+            <p>Možemo da izvučemo vrednost pomoću ključa
+koristeći <code>name[key]</code>.</p>
 
           </td>
           <td class="code leading">
@@ -138,8 +140,8 @@ value type is returned.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>len</code> returns the number of key/value
-pairs when called on a map.</p>
+            <p>Ugrađen <code>len</code> vraća broj key/value
+parova kada je pozvan na neku mapu.</p>
 
           </td>
           <td class="code leading">
@@ -150,8 +152,8 @@ pairs when called on a map.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>delete</code> removes key/value pairs from
-a map.</p>
+            <p>Ugrađen <code>delete</code> briše key/value par iz
+neke mape.</p>
 
           </td>
           <td class="code leading">
@@ -163,8 +165,8 @@ a map.</p>
         
         <tr>
           <td class="docs">
-            <p>To remove <em>all</em> key/value pairs from a map, use
-the <code>clear</code> builtin.</p>
+            <p>Da bi izbrisali <em>sve</em> key/value parove iz mape, koristimo
+ugrađenu <code>clear</code> funkciju.</p>
 
           </td>
           <td class="code leading">
@@ -176,13 +178,13 @@ the <code>clear</code> builtin.</p>
         
         <tr>
           <td class="docs">
-            <p>The optional second return value when getting a
-value from a map indicates if the key was present
-in the map. This can be used to disambiguate
-between missing keys and keys with zero values
-like <code>0</code> or <code>&quot;&quot;</code>. Here we didn&rsquo;t need the value
-itself, so we ignored it with the <em>blank identifier</em>
-<code>_</code>.</p>
+            <p>Kada izvlačimo vrednost iz neke mape uz pomoć ključa,
+postoji opcionalna vrednost koju nam Go daje na return.
+Ova vrednost nam vraća boolean true ako je ključ ikad
+postojao. Tako možemo da raspoznamo nepostojeće ključeve
+od onih nultih koje imaju vrednost kao npr. <code>0</code> ili <code>&quot;&quot;</code>.
+U ovim linijama nismo tražili samu vrednost,
+pa smo je ignorisali <em>blanko znakom</em> <code>_</code>.</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +196,8 @@ itself, so we ignored it with the <em>blank identifier</em>
         
         <tr>
           <td class="docs">
-            <p>You can also declare and initialize a new map in
-the same line with this syntax.</p>
+            <p>Kao i nizove i isečke, mape možemo takođe
+deklarisati i inicijalizovati u jednoj liniji.</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +209,8 @@ the same line with this syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>maps</code> package contains a number of useful
-utility functions for maps.</p>
+            <p>Go paket <code>maps</code> sadrži brojne korisne
+funkcije za upravljanje mapama.</p>
 
           </td>
           <td class="code">
@@ -227,8 +229,8 @@ utility functions for maps.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that maps appear in the form <code>map[k:v k:v]</code> when
-printed with <code>fmt.Println</code>.</p>
+            <p>Primetimo da se mape pojavljuju u formatu <code>map[k:v k:v]</code> kada
+ih ispisujemo pomoću <code>fmt.Println</code>.</p>
 
           </td>
           <td class="code">

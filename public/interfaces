@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p><em>Interfaces</em> are named collections of method
-signatures.</p>
+            <p><em>Interfejsi</em> su imenovane kolekcije
+potpisa funkcija.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ signatures.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/xAAbgd7GOKD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/iLWIkWISuyw"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,7 +65,7 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic interface for geometric shapes.</p>
+            <p>Ovo je jednostavan interfejs za geometrijske oblike.</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +79,8 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll implement this interface on
-<code>rect</code> and <code>circle</code> types.</p>
+            <p>U našem primeru, implementiraćemo ovaj interfejs na
+<code>rect</code> i <code>circle</code> strukturama.</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +96,9 @@ signatures.</p>
         
         <tr>
           <td class="docs">
-            <p>To implement an interface in Go, we just need to
-implement all the methods in the interface. Here we
-implement <code>geometry</code> on <code>rect</code>s.</p>
+            <p>Da bi implementirali interfejs u Go-u, potrebno je
+samo da implementiramo sve metode interfejsa. Ovde
+implementiramo interfejs <code>geometry</code> na <code>rect</code>.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +114,7 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The implementation for <code>circle</code>s.</p>
+            <p>I implementacija za <code>circle</code>&hellip;</p>
 
           </td>
           <td class="code leading">
@@ -130,10 +130,10 @@ implement <code>geometry</code> on <code>rect</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>If a variable has an interface type, then we can call
-methods that are in the named interface. Here&rsquo;s a
-generic <code>measure</code> function taking advantage of this
-to work on any <code>geometry</code>.</p>
+            <p>Ako je varijabla tipa nekog interfejsa, onda možemo da
+zovemo metode tog interfejsa na njoj. Evo jedne
+generične funkcije <code>measure</code>, koja radi nad bilo kojom
+<code>geometry</code> varijablom.</p>
 
           </td>
           <td class="code leading">
@@ -148,9 +148,10 @@ to work on any <code>geometry</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sometimes it&rsquo;s useful to know the runtime type of an
-interface value. One option is using a <em>type assertion</em>
-as shown here; another is a <a href="switch">type <code>switch</code></a>.</p>
+            <p>Ponekad je korisno da znamo tip varijable.
+Jedna opcija je pomoću <em>provere tipa</em>
+kao u ovom primeru;
+drugi primer je <a href="switch">tip preko <code>switch</code>-a</a>.</p>
 
           </td>
           <td class="code leading">
@@ -177,10 +178,10 @@ as shown here; another is a <a href="switch">type <code>switch</code></a>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>circle</code> and <code>rect</code> struct types both
-implement the <code>geometry</code> interface so we can use
-instances of
-these structs as arguments to <code>measure</code>.</p>
+            <p>Obe <code>circle</code> i <code>rect</code> strukture imaju
+implementiran interfejs <code>geometry</code>,
+pa možemo da koristimo instance
+ovih struktura kao argumente za <code>measure</code>.</p>
 
           </td>
           <td class="code leading">
@@ -225,8 +226,8 @@ these structs as arguments to <code>measure</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To understand how Go&rsquo;s interfaces work under the hood,
-check out this <a href="https://research.swtch.com/interfaces">blog post</a>.</p>
+            <p>Ovaj <a href="https://research.swtch.com/interfaces">blog post</a> govori
+više o tome kako interfejsi zaista funkcionišu &ldquo;under the hood&rdquo;.</p>
 
           </td>
           <td class="code empty">
