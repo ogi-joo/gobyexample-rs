@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: JSON</title>
+    <title>Go kroz primere: JSON</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="json">
-      <h2><a href="./">Go by Example</a>: JSON</h2>
+      <h2><a href="./">Go kroz primere</a>: JSON</h2>
       
       <table>
         
@@ -385,12 +385,12 @@ for more.</p>
       
       
       <p class="next">
-        Next example: <a href="xml" rel="next">XML</a>.
+        Sledeći primer: <a href="xml" rel="next">XML</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      sastavio <a href="https://markmcgranaghan.com">Mark McGranaghan</a> i <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | Preveo Ognjen Jovanović <a href="https://github.com/ogi-joo/gobyexample-rs">GitHub</a> | <a href="https://github.com/ogi-joo/gobyexample-rs#license">Licensa</a>
     </p>
 
     </div>

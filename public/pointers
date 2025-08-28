@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Pointers</title>
+    <title>Go kroz primere: Pointers</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="./">Go by Example</a>: Pointers</h2>
+      <h2><a href="./">Go kroz primere</a>: Pointers</h2>
       
       <table>
         
@@ -167,12 +167,12 @@ na memorijsku adresu te varijable.</p>
       
       
       <p class="next">
-        Next example: <a href="strings-and-runes" rel="next">Strings and Runes</a>.
+        Sledeći primer: <a href="strings-and-runes" rel="next">Strings and Runes</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      sastavio <a href="https://markmcgranaghan.com">Mark McGranaghan</a> i <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | Preveo Ognjen Jovanović <a href="https://github.com/ogi-joo/gobyexample-rs">GitHub</a> | <a href="https://github.com/ogi-joo/gobyexample-rs#license">Licensa</a>
     </p>
 
     </div>

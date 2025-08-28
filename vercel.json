@@ -1,0 +1,6 @@
+{
+  "buildCommand": "./tools/serve",
+  "outputDirectory": "public",
+  "installCommand": "echo 'No install needed'",
+  "framework": null
+}

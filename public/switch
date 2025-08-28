@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Switch</title>
+    <title>Go kroz primere: Switch</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="switch">
-      <h2><a href="./">Go by Example</a>: Switch</h2>
+      <h2><a href="./">Go kroz primere</a>: Switch</h2>
       
       <table>
         
@@ -182,12 +182,12 @@ ispitujemo.</p>
       
       
       <p class="next">
-        Next example: <a href="arrays" rel="next">Arrays</a>.
+        Sledeći primer: <a href="arrays" rel="next">Arrays</a>.
       </p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a> and <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | <a href="https://github.com/mmcgrana/gobyexample">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+      sastavio <a href="https://markmcgranaghan.com">Mark McGranaghan</a> i <a href="https://eli.thegreenplace.net">Eli Bendersky</a> | Preveo Ognjen Jovanović <a href="https://github.com/ogi-joo/gobyexample-rs">GitHub</a> | <a href="https://github.com/ogi-joo/gobyexample-rs#license">Licensa</a>
     </p>
 
     </div>
