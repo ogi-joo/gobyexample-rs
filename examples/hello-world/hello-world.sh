@@ -1,5 +1,5 @@
 # Da bi pokrenuli program, ubacujemo kod u `hello-world.go`
-# korstimo `go run`.
+# koristimo `go run`.
 $ go run hello-world.go
 hello world
 
