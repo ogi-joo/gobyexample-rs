@@ -1,7 +1,7 @@
-// It's possible to use custom types as `error`s by
-// implementing the `Error()` method on them. Here's a
-// variant on the example above that uses a custom type
-// to explicitly represent an argument error.
+// Možemo da koristimo naše posebne tipove za `error`-e
+// implementirajući `Error()` metodu. Evo jednog primera
+// koji koristi gornju metodu za otkrivanje grešaka
+// argumenta.
 
 package main
 
@@ -10,14 +10,15 @@ import (
 	"fmt"
 )
 
-// A custom error type usually has the suffix "Error".
+// Praksa je da se posebni tipovi grešaka
+// završavaju na "Error".
 type argError struct {
 	arg     int
 	message string
 }
 
-// Adding this `Error` method makes `argError` implement
-// the `error` interface.
+// Kada dodamo `Error` metod, `argError` implementira
+// interfejs `error`.
 func (e *argError) Error() string {
 	return fmt.Sprintf("%d - %s", e.arg, e.message)
 }
@@ -25,7 +26,7 @@ func (e *argError) Error() string {
 func f(arg int) (int, error) {
 	if arg == 42 {
 
-		// Return our custom error.
+		// Vraćamo naš tip greške.
 		return -1, &argError{arg, "can't work with it"}
 	}
 	return arg + 3, nil
@@ -33,11 +34,11 @@ func f(arg int) (int, error) {
 
 func main() {
 
-	// `errors.As` is a more advanced version of `errors.Is`.
-	// It checks that a given error (or any error in its chain)
-	// matches a specific error type and converts to a value
-	// of that type, returning `true`. If there's no match, it
-	// returns `false`.
+	// `errors.As` je naprednija verzija `errors.Is`.
+	// Proverava da li data greška (ili bilo koja greška u lancu)
+	// se podudara sa specifičnim error tipom i konvertuje je u
+	// vrednost tog tipa, vraćajući `true`. Ako nema podudaranja,
+	// vraća `false`.
 	_, err := f(42)
 	var ae *argError
 	if errors.As(err, &ae) {
