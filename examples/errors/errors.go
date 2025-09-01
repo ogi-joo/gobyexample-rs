@@ -1,15 +1,14 @@
-// In Go it's idiomatic to communicate errors via an
-// explicit, separate return value. This contrasts with
-// the exceptions used in languages like Java and Ruby and
-// the overloaded single result / error value sometimes
-// used in C. Go's approach makes it easy to see which
-// functions return errors and to handle them using the
-// same language constructs employed for other,
-// non-error tasks.
+// Idimatski je da u Go-u komuniciramo greške (errors)
+// eksplicitno, preko odvojene return vrednosti. Slično je
+// `exceptions`-ima korišćene u jezicima kao Java i Ruby.
+// Go-ov pristup nam omogućava da jednostavno vidimo koje
+// funkcije vraćaju greške i da ih manipulišemo istom
+// jezičkom sintaksom kao što i za druge,
+// bezgrešne tasko-ove.
 //
-// See the documentation of the [errors package](https://pkg.go.dev/errors)
-// and [this blog post](https://go.dev/blog/go1.13-errors) for additional
-// details.
+// Pogledaj zvaničan [errors paket](https://pkg.go.dev/errors)
+// i [ovaj blog post](https://go.dev/blog/go1.13-errors) za više
+// informacija.
 
 package main
 
@@ -18,37 +17,37 @@ import (
 	"fmt"
 )
 
-// By convention, errors are the last return value and
-// have type `error`, a built-in interface.
+// Praksa je da su greške poslednja vraćena vrednost
+// i da imaju tip `error`, ugrađen interfejs.
 func f(arg int) (int, error) {
 	if arg == 42 {
-		// `errors.New` constructs a basic `error` value
-		// with the given error message.
+		// `errors.New` konstruiše `error` vrednost
+		// sa datom greškom u tekstualnom obliku.
 		return -1, errors.New("can't work with 42")
 	}
 
-	// A `nil` value in the error position indicates that
-	// there was no error.
+	// Vrednost `nil` na poziciji greške nagoveštava
+	// da nije bilo greške.
 	return arg + 3, nil
 }
 
-// A sentinel error is a predeclared variable that is used to
-// signify a specific error condition.
-var ErrOutOfTea = fmt.Errorf("no more tea available")
-var ErrPower = fmt.Errorf("can't boil water")
+// Stražarska greška (sentinel error) je deklarisana greška
+// i označava specifičnu grešku.
+var ErrOutOfTea = fmt.Errorf("nema više čaja")
+var ErrPower = fmt.Errorf("voda se ne može skuvati")
 
 func makeTea(arg int) error {
 	if arg == 2 {
 		return ErrOutOfTea
 	} else if arg == 4 {
 
-		// We can wrap errors with higher-level errors to add
-		// context. The simplest way to do this is with the
-		// `%w` verb in `fmt.Errorf`. Wrapped errors
-		// create a logical chain (A wraps B, which wraps C, etc.)
-		// that can be queried with functions like `errors.Is`
-		// and `errors.As`.
-		return fmt.Errorf("making tea: %w", ErrPower)
+		// Možemo da objedinimo stražarske i obične greške.
+		// Najjednostavniji način je koristeći
+		// `%w` sintaksu u `fmt.Errorf`. Objedinjene greške
+		// kreiraju lanac (A zaokružuje B, koji zaokružuje C, itd.)
+		// što je korisno za kasniju implementaciju `errors.Is`
+		// i `errors.As` funkcija.
+		return fmt.Errorf("kuvanje čaja: %w", ErrPower)
 	}
 	return nil
 }
@@ -56,8 +55,8 @@ func makeTea(arg int) error {
 func main() {
 	for _, i := range []int{7, 42} {
 
-		// It's common to use an inline error check in the `if`
-		// line.
+		// Praksa je da se greške proveravaju u inline if
+		// loop-u.
 		if r, e := f(i); e != nil {
 			fmt.Println("f failed:", e)
 		} else {
@@ -68,20 +67,19 @@ func main() {
 	for i := range 5 {
 		if err := makeTea(i); err != nil {
 
-			// `errors.Is` checks that a given error (or any error in its chain)
-			// matches a specific error value. This is especially useful with wrapped or
-			// nested errors, allowing you to identify specific error types or sentinel
-			// errors in a chain of errors.
+			// `errors.Is` proverava da li data greška (ili bilo koja u lancu)
+			// se podudara sa nekom drugom. Ovo je dosta korisno jer nam
+			// pomaže da raspoznamo bilo koju grešku, bila ona objedinjena ili ne.
 			if errors.Is(err, ErrOutOfTea) {
-				fmt.Println("We should buy new tea!")
+				fmt.Println("Trebamo kupiti novi čaj!")
 			} else if errors.Is(err, ErrPower) {
-				fmt.Println("Now it is dark.")
+				fmt.Println("Sada je noć.")
 			} else {
 				fmt.Printf("unknown error: %s\n", err)
 			}
 			continue
 		}
 
-		fmt.Println("Tea is ready!")
+		fmt.Println("Čaj je spreman!")
 	}
 }
