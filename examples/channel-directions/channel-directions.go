@@ -1,21 +1,21 @@
-// When using channels as function parameters, you can
-// specify if a channel is meant to only send or receive
-// values. This specificity increases the type-safety of
-// the program.
+// Kada koristimo kanal kao funkcijski parametar, možemo
+// specifirati da li je kanal namenjen samo slanju ili
+// primanju vrednosti. Ovim povećavamo tipovnu sigurnost
+// programa.
 
 package main
 
 import "fmt"
 
-// This `ping` function only accepts a channel for sending
-// values. It would be a compile-time error to try to
-// receive on this channel.
+// Ova `ping` funkcija prima samo kanal za slanje
+// vrednosti. Ako pokušamo da pozovemo sa kanalom
+// za primanje, doći će do greške prilikom kompajliranja.
 func ping(pings chan<- string, msg string) {
 	pings <- msg
 }
 
-// The `pong` function accepts one channel for receives
-// (`pings`) and a second for sends (`pongs`).
+// Funkcija `pong` prima jedan kanal za primanje
+// (`pings`) i drugi za slanje (`pongs`).
 func pong(pings <-chan string, pongs chan<- string) {
 	msg := <-pings
 	pongs <- msg

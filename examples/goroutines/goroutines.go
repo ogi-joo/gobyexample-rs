@@ -1,4 +1,4 @@
-// A _goroutine_ is a lightweight thread of execution.
+// Go-rutina (goroutine) je `lightweight` nit (thread) za izvršenja.
 
 package main
 
@@ -15,25 +15,26 @@ func f(from string) {
 
 func main() {
 
-	// Suppose we have a function call `f(s)`. Here's how
-	// we'd call that in the usual way, running it
-	// synchronously.
+	// Recimo da imamo poziv funkcije `f(s)`. Ovako
+	// inače zovemo funkciju, koja se pokreće
+	// sinhrono (sekvencijalno u kodu).
 	f("direct")
 
-	// To invoke this function in a goroutine, use
-	// `go f(s)`. This new goroutine will execute
-	// concurrently with the calling one.
+	// Da bi je izveli u nekoj niti go-rutine,
+	// koristimo `go f(s)`. Ova nova go-rutinska će
+	// se izvršavati istovremeno sa gornjom funkcijom.
 	go f("goroutine")
 
-	// You can also start a goroutine for an anonymous
-	// function call.
+	// Takođe možemo započeti go-rutinu i sa anonimnim
+	// funkcijskim pozivom.
 	go func(msg string) {
 		fmt.Println(msg)
 	}("going")
 
-	// Our two function calls are running asynchronously in
-	// separate goroutines now. Wait for them to finish
-	// (for a more robust approach, use a [WaitGroup](waitgroups)).
+	// Sada se naše dve funkcije izvršavaju asinhrono
+	// u odvojenim go-rutinama. Sačekaćemo da se završe,
+	// jer ne zavise od funkcije koja ih zatvara
+	// (za robustniji pristup, koristimo [WaitGroup](waitgroups)).
 	time.Sleep(time.Second)
 	fmt.Println("done")
 }
