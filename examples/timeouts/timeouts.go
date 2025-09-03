@@ -1,7 +1,7 @@
-// _Timeouts_ are important for programs that connect to
-// external resources or that otherwise need to bound
-// execution time. Implementing timeouts in Go is easy and
-// elegant thanks to channels and `select`.
+// _Tajm-aut, Timeout_ je bitan za programe koji se povezuju
+// sa eksternim resursima ili za one koji zavise od vremena
+// izvršenja. Implementacija timeout-a u Go-u je jednostavna i
+// elegantna zahvaljujući kanalima i `select`.
 
 package main
 
@@ -12,24 +12,23 @@ import (
 
 func main() {
 
-	// For our example, suppose we're executing an external
-	// call that returns its result on a channel `c1`
-	// after 2s. Note that the channel is buffered, so the
-	// send in the goroutine is nonblocking. This is a
-	// common pattern to prevent goroutine leaks in case the
-	// channel is never read.
+	// Zarad primera, recimo da izvršavamo eksterni
+	// poziv koji vraća rezultat na kanal `c1`
+	// nakon 2s. Primetimo da je kanal baferovan.
+	// Ovo je česta praksa koja zaustavlja curenje
+	// go-rutina ako se kanal nikad ne pročita.
 	c1 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
 		c1 <- "result 1"
 	}()
 
-	// Here's the `select` implementing a timeout.
-	// `res := <-c1` awaits the result and `<-time.After`
-	// awaits a value to be sent after the timeout of
-	// 1s. Since `select` proceeds with the first
-	// receive that's ready, we'll take the timeout case
-	// if the operation takes more than the allowed 1s.
+	// Ovo je `select` koji implementira timeout.
+	// `res := <-c1` čeka neku vrednost, a `<-time.After`
+	// šalje vrednost nakon 1s. Zbog toga što `select`
+	// nastavlja `case` sa prvom koja se desi, osiguravamo
+	// da će se tajm-aut desiti nakon 1s ako se kanal c1
+	// ne koristi.
 	select {
 	case res := <-c1:
 		fmt.Println(res)
@@ -37,8 +36,8 @@ func main() {
 		fmt.Println("timeout 1")
 	}
 
-	// If we allow a longer timeout of 3s, then the receive
-	// from `c2` will succeed and we'll print the result.
+	// Ako dozvolimo duži timeout od 3s, onda će kanal
+	// `c2` biti popunjem u 2s i ispisaćemo tu vrednost.
 	c2 := make(chan string, 1)
 	go func() {
 		time.Sleep(2 * time.Second)
