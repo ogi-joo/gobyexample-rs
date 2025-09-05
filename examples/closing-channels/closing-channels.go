@@ -1,15 +1,15 @@
-// _Closing_ a channel indicates that no more values
-// will be sent on it. This can be useful to communicate
-// completion to the channel's receivers.
+// _Zatvaranje_ kanala znači da se vrednosti
+// više ne mogu slati. Ovo je korisno da označimo
+// završetak kanala našim risiverima.
 
 package main
 
 import "fmt"
 
-// In this example we'll use a `jobs` channel to
-// communicate work to be done from the `main()` goroutine
-// to a worker goroutine. When we have no more jobs for
-// the worker we'll `close` the `jobs` channel.
+// U ovom primeru koristićemo kanal `jobs`
+// da objavimo završetak `main()` go-rutine.
+// Kada više ne budemo imali task-ove za
+// naše worker-e `zatvorićemo` kanal `jobs`.
 func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)

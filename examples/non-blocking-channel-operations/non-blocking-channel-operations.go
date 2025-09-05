@@ -1,7 +1,7 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Klasično slanje i primanje preko kanala blokira.
+// Međutim, možemo da koristimo `select` sa `default` klauzulom
+// i omogućimo _deblokirana_ slanja, primanja, i
+// deblokirani više-smerni `select`.
 
 package main
 
@@ -11,10 +11,10 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// Ovo je deblokirano primanje. Ako je vrednost
+	// dostupna na `messages` onda će `select` uzeti
+	// slučaj `<-messages` sa tom vrednošću. Ako nema
+	// on će se odmah prebaciti na `default` slučaj.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +22,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// Deblokirano slanje radi slično. Ovde, `msg`
+	// ne može da se pošalje na kanal `messages` zato
+	// što kanal nema bafer i ne postoji risiver.
+	// `Default` slučaj je izabran.
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +34,10 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// Možemo imati više `slučajeva` iznad `default`-a
+	// klauzule da implementiramo više-smerni deblokirani
+	// select. Ovde pokušavamo da primimo na oba
+	// kanala `messages` i `signals`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
