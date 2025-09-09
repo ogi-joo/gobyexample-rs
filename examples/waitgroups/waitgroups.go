@@ -1,5 +1,5 @@
-// To wait for multiple goroutines to finish, we can
-// use a *wait group*.
+// Da bi čekali na više go-rutina da se završe,
+// možemo da koristimo *wait grupe*.
 
 package main
 
@@ -9,36 +9,39 @@ import (
 	"time"
 )
 
-// This is the function we'll run in every goroutine.
+// Ovo je worker koga ćemo pokretati na svaku go-rutinu.
 func worker(id int) {
 	fmt.Printf("Worker %d starting\n", id)
 
-	// Sleep to simulate an expensive task.
+	// Sleep da simuliramo skupi task.
 	time.Sleep(time.Second)
 	fmt.Printf("Worker %d done\n", id)
 }
 
 func main() {
 
-	// This WaitGroup is used to wait for all the
-	// goroutines launched here to finish. Note: if a WaitGroup is
-	// explicitly passed into functions, it should be done *by pointer*.
+	// Ovaj WaitGroup se koristi da čeka sve pokrenute
+	// go-rutine da se završe. Bitno: ako je WaitGroup
+	// eksplicitno prosleđena funkciji, moramo to uraditi
+	// *preko pokazivača*.
 	var wg sync.WaitGroup
 
-	// Launch several goroutines using `WaitGroup.Go`
+	// Pokrećemo više go-rutina pomoću `WaitGroup.Go`.
+	// Ova metoda nije dostupna u starijim verzijama,
+	// budite sigurni da koristite najnoviju Go verziju.
 	for i := 1; i <= 5; i++ {
 		wg.Go(func() {
 			worker(i)
 		})
 	}
 
-	// Block until all the goroutines started by `wg` are
-	// done. A goroutine is done when the function it invokes
-	// returns.
+	// Blokiramo dok se sve go-rutine pokrenute od strane `wg`
+	// ne završe. Go-rutina se završi kada interna funkcija
+	// vrati - `returns`.
 	wg.Wait()
 
-	// Note that this approach has no straightforward way
-	// to propagate errors from workers. For more
-	// advanced use cases, consider using the
-	// [errgroup package](https://pkg.go.dev/golang.org/x/sync/errgroup).
+	// Primetimo da ovaj pristup nam ne daje laganu
+	// propagaciju grešaka od worker-a. Za komplikovanije
+	// primere, možemo koristiti
+	// [errgroup paket](https://pkg.go.dev/golang.org/x/sync/errgroup).
 }

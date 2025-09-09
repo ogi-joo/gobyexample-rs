@@ -1,5 +1,5 @@
-// In this example we'll look at how to implement
-// a _worker pool_ using goroutines and channels.
+// U ovom primeru implementiraćemo _worker pool_
+// (skup radnji) koristeći go-rutine i kanale.
 
 package main
 
@@ -8,11 +8,11 @@ import (
 	"time"
 )
 
-// Here's the worker, of which we'll run several
-// concurrent instances. These workers will receive
-// work on the `jobs` channel and send the corresponding
-// results on `results`. We'll sleep a second per job to
-// simulate an expensive task.
+// Ovo je worker, pokrenućemo nekoliko instance
+// njega istovremeno. Ovi worker-i će primati
+// task-ove na `jobs` kanalu i slati rezultate na
+// kanal `results`. Sleep-ovaćemo sekundu za svaki
+// posao kako bismo simulirali real-world situaciju.
 func worker(id int, jobs <-chan int, results chan<- int) {
 	for j := range jobs {
 		fmt.Println("worker", id, "started  job", j)
@@ -24,30 +24,30 @@ func worker(id int, jobs <-chan int, results chan<- int) {
 
 func main() {
 
-	// In order to use our pool of workers we need to send
-	// them work and collect their results. We make 2
-	// channels for this.
+	// Da bismo koristili naš skup radnji, a oni
+	// radili i vraćali rezultate, napravićemo
+	// 2 kanala.
 	const numJobs = 5
 	jobs := make(chan int, numJobs)
 	results := make(chan int, numJobs)
 
-	// This starts up 3 workers, initially blocked
-	// because there are no jobs yet.
+	// Otpočinjemo 3 worker-a, inicijalno blokirani
+	// jer i dalje nemaju poslove, jobs.
 	for w := 1; w <= 3; w++ {
 		go worker(w, jobs, results)
 	}
 
-	// Here we send 5 `jobs` and then `close` that
-	// channel to indicate that's all the work we have.
+	// Ovde šaljemo 5 `poslova` i potom `zatvaramo` taj
+	// kanal čime kažemo da nema više poslova za rad.
 	for j := 1; j <= numJobs; j++ {
 		jobs <- j
 	}
 	close(jobs)
 
-	// Finally we collect all the results of the work.
-	// This also ensures that the worker goroutines have
-	// finished. An alternative way to wait for multiple
-	// goroutines is to use a [WaitGroup](waitgroups).
+	// Na kraju prihvatamo sve rezultate poslova.
+	// Ovako i osiguravamo da su se sve go-rutine
+	// završile. Alternativa za čekanje više go-rutina
+	// je uz pomoć [WaitGroup-e](waitgroups).
 	for a := 1; a <= numJobs; a++ {
 		<-results
 	}

@@ -1,7 +1,7 @@
-# Our running program shows the 5 jobs being executed by
-# various workers. The program only takes about 2 seconds
-# despite doing about 5 seconds of total work because
-# there are 3 workers operating concurrently.
+# Pokretanje našeg programa, izvršavamo 5 poslova preko
+# više worker-a. Programu treba oko 2 sekunde iako
+# radi oko 5 sekunde ukupno poslova.
+# 3 worker-a rade istovremeno.
 $ time go run worker-pools.go 
 worker 1 started  job 1
 worker 2 started  job 2
