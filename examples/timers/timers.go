@@ -1,8 +1,8 @@
-// We often want to execute Go code at some point in the
-// future, or repeatedly at some interval. Go's built-in
-// _timer_ and _ticker_ features make both of these tasks
-// easy. We'll look first at timers and then
-// at [tickers](tickers).
+// Često nam zatreba da izvršimo Golang kod u budućnosti,
+// ili po nekom intervalu. Go-ove ugrađene funkcije
+// _timer_ i _ticker_ nam omogućavaju da oba task-a budu
+// laka za implementaciju. Prvo ćemo pogledati u tajmere
+// a potom u [ticker-e](tickers).
 
 package main
 
@@ -13,22 +13,22 @@ import (
 
 func main() {
 
-	// Timers represent a single event in the future. You
-	// tell the timer how long you want to wait, and it
-	// provides a channel that will be notified at that
-	// time. This timer will wait 2 seconds.
+	// Tajmeri predstavljaju neki događaj u budućnosti. Mi
+	// govorimo tajmeru koliko dugo želimo da traje, a on
+	// nam daje kanal koji će biti obavešten kada na to dođe
+	// vreme. Ovaj tajmer će čekati 2 sekunde.
 	timer1 := time.NewTimer(2 * time.Second)
 
-	// The `<-timer1.C` blocks on the timer's channel `C`
-	// until it sends a value indicating that the timer
-	// fired.
+	// Sintaksa `<-timer1.C` blokira tajmer kanal `C`
+	// dok on ne pošalje vrednost obaveštavajući nas da
+	// je tajmer "opalio".
 	<-timer1.C
 	fmt.Println("Timer 1 fired")
 
-	// If you just wanted to wait, you could have used
-	// `time.Sleep`. One reason a timer may be useful is
-	// that you can cancel the timer before it fires.
-	// Here's an example of that.
+	// Ako poželimo samo da čekamo, možemo koristiti klasičan
+	// `time.Sleep`. Jedan od razloga zašto tajmer može biti koristan
+	// je taj da možemo da ga cancel-ujemo pre nego što opali.
+	// Ovo je primer toga.
 	timer2 := time.NewTimer(time.Second)
 	go func() {
 		<-timer2.C
@@ -39,7 +39,9 @@ func main() {
 		fmt.Println("Timer 2 stopped")
 	}
 
-	// Give the `timer2` enough time to fire, if it ever
-	// was going to, to show it is in fact stopped.
+	// Ako damo tajmeru `timer2` dovoljno vremena da opali,
+	// možemo dokazati da je stvarno zaustavljen. Ovu liniju
+	// možemo staviti odmah iznad `stop2 := timer2.Stop()` kako
+	// bismo ovo demonstrirali.
 	time.Sleep(2 * time.Second)
 }

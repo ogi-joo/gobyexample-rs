@@ -14,13 +14,13 @@ func main() {
 	jobs := make(chan int, 5)
 	done := make(chan bool)
 
-	// Here's the worker goroutine. It repeatedly receives
-	// from `jobs` with `j, more := <-jobs`. In this
-	// special 2-value form of receive, the `more` value
-	// will be `false` if `jobs` has been `close`d and all
-	// values in the channel have already been received.
-	// We use this to notify on `done` when we've worked
-	// all our jobs.
+	// Ovo je go-rutina. Ona non-stop prima taskove
+	// iz `jobs` sa `j, more := <-jobs`. U ovoj
+	// formi primanja sa dve vrednosti, vrednost `more`
+	// će biti `false` ako je `jobs` zatvoren i sve
+	// vrednosti u kanalu su primljene.
+	// Koristimo ovu prednost da pošaljemo vrednost u
+	// `done` kada su svi taskovi iz `jobs` gotovi.
 	go func() {
 		for {
 			j, more := <-jobs
@@ -34,8 +34,8 @@ func main() {
 		}
 	}()
 
-	// This sends 3 jobs to the worker over the `jobs`
-	// channel, then closes it.
+	// Ovde šaljemo 3 "posla" na worker preko
+	// kanala `jobs` i potom ga zatvaramo.
 	for j := 1; j <= 3; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
@@ -43,18 +43,16 @@ func main() {
 	close(jobs)
 	fmt.Println("sent all jobs")
 
-	// We await the worker using the
-	// [synchronization](channel-synchronization) approach
-	// we saw earlier.
+	// Čekamo `done` kanal pomoću tehnike
+	// [sinhronizacije](channel-synchronization) koju smo
+	// ranije videli.
 	<-done
 
-	// Reading from a closed channel succeeds immediately,
-	// returning the zero value of the underlying type.
-	// The optional second return value is `true` if the
-	// value received was delivered by a successful send
-	// operation to the channel, or `false` if it was a
-	// zero value generated because the channel is closed
-	// and empty.
+	// Čitanje iz zatvorenog kanala je odmah uspešno,
+	// vraćajući `zero-valued` vrednost neke vrednosti (ovde `int`).
+	// Opcionalni drugi parametar je `true` ako je
+	// vrednost primljena nakon uspešnog slanja na kanal,
+	// ili `false` ako je kanal zatvoren i prazan.
 	_, ok := <-jobs
 	fmt.Println("received more jobs:", ok)
 }

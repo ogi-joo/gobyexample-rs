@@ -9,5 +9,5 @@ sent all jobs
 received all jobs
 received more jobs: false
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# Sama ideja o zatvaranju kanala nas vodi do sledeće
+# teme: `range` preko kanala.
