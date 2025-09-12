@@ -65,7 +65,7 @@ poruku u konzoli. Ovo je ceo kod.</p>
         <tr>
           <td class="docs">
             <p>Da bi pokrenuli program, ubacujemo kod u <code>hello-world.go</code>
-korstimo <code>go run</code>.</p>
+koristimo <code>go run</code>.</p>
 
           </td>
           <td class="code leading">

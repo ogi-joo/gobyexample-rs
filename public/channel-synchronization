@@ -30,11 +30,12 @@
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.
-When waiting for multiple goroutines to finish,
-you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>Možemo da koristimo kanale da sinhronizujemo
+izvršenja u različitim go-rutinama. Ovo je
+primer gde blokiramo prihvatanje i čekamo
+go-rutinu da se izvrši do kraja.
+Za čekanje na nekoliko go-rutina da se izvrše,
+<a href="waitgroups">WaitGroup</a> je možda bolji izbor.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +49,7 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Nw-1DzIGk5f"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ekdwHArr7JU"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,9 +69,9 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>Ovo je funkcija koju ćemo koristiti u go-rutini.
+Kanal <code>done</code> će se biti koristan da obavesti
+druge go-rutine da se ova funkcija izvršila.</p>
 
           </td>
           <td class="code leading">
@@ -84,7 +85,7 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>Šaljemo vrednost i obaveštavamo da smo <code>done</code>.</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +107,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>Počinjemo worker go-rutinu, dajući joj kanal
+da nas obavesti nazad.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +120,8 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>Blokiramo dalje izvršenje dok ne dobijemo
+obaveštenje iz kanala.</p>
 
           </td>
           <td class="code">
@@ -147,9 +148,9 @@ worker on the channel.</p>
         
         <tr>
           <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program, the
-program would exit before the <code>worker</code> even
-started.</p>
+            <p>Ako obrišemo <code>&lt;- done</code> liniju iz ovog programa,
+program bi se završio pre nego što je worker
+i počeo.</p>
 
           </td>
           <td class="code empty">

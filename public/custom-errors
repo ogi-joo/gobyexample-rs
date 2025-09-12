@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s possible to use custom types as <code>error</code>s by
-implementing the <code>Error()</code> method on them. Here&rsquo;s a
-variant on the example above that uses a custom type
-to explicitly represent an argument error.</p>
+            <p>Možemo da koristimo naše posebne tipove za <code>error</code>-e
+implementirajući <code>Error()</code> metodu. Evo jednog primera
+koji koristi gornju metodu za otkrivanje grešaka
+argumenta.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ to explicitly represent an argument error.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/qKKTjmc6SuB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3OPYwGhXVPi"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,7 +67,8 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>A custom error type usually has the suffix &ldquo;Error&rdquo;.</p>
+            <p>Praksa je da se posebni tipovi grešaka
+završavaju na &ldquo;Error&rdquo;.</p>
 
           </td>
           <td class="code leading">
@@ -81,8 +82,8 @@ to explicitly represent an argument error.</p>
         
         <tr>
           <td class="docs">
-            <p>Adding this <code>Error</code> method makes <code>argError</code> implement
-the <code>error</code> interface.</p>
+            <p>Kada dodamo <code>Error</code> metod, <code>argError</code> implementira
+interfejs <code>error</code>.</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +107,7 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p>Return our custom error.</p>
+            <p>Vraćamo naš tip greške.</p>
 
           </td>
           <td class="code leading">
@@ -130,11 +131,11 @@ the <code>error</code> interface.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.As</code> is a more advanced version of <code>errors.Is</code>.
-It checks that a given error (or any error in its chain)
-matches a specific error type and converts to a value
-of that type, returning <code>true</code>. If there&rsquo;s no match, it
-returns <code>false</code>.</p>
+            <p><code>errors.As</code> je naprednija verzija <code>errors.Is</code>.
+Proverava da li data greška (ili bilo koja greška u lancu)
+se podudara sa specifičnim error tipom i konvertuje je u
+vrednost tog tipa, vraćajući <code>true</code>. Ako nema podudaranja,
+vraća <code>false</code>.</p>
 
           </td>
           <td class="code">

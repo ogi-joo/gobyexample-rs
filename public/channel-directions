@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>When using channels as function parameters, you can
-specify if a channel is meant to only send or receive
-values. This specificity increases the type-safety of
-the program.</p>
+            <p>Kada koristimo kanal kao funkcijski parametar, možemo
+specifirati da li je kanal namenjen samo slanju ili
+primanju vrednosti. Ovim povećavamo tipovnu sigurnost
+programa.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ the program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/mjNJDHwUH4R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/IR6lMyQVPVp"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,9 +64,9 @@ the program.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>ping</code> function only accepts a channel for sending
-values. It would be a compile-time error to try to
-receive on this channel.</p>
+            <p>Ova <code>ping</code> funkcija prima samo kanal za slanje
+vrednosti. Ako pokušamo da pozovemo sa kanalom
+za primanje, doći će do greške prilikom kompajliranja.</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +79,8 @@ receive on this channel.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>pong</code> function accepts one channel for receives
-(<code>pings</code>) and a second for sends (<code>pongs</code>).</p>
+            <p>Funkcija <code>pong</code> prima jedan kanal za primanje
+(<code>pings</code>) i drugi za slanje (<code>pongs</code>).</p>
 
           </td>
           <td class="code leading">

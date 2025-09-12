@@ -30,9 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>Starting with version 1.23, Go has added support for
-<a href="https://go.dev/blog/range-functions">iterators</a>,
-which lets us range over pretty much anything!</p>
+            <p>Od verzije 1.23, Go je dodao podršku za
+<a href="https://go.dev/blog/range-functions">iteratore</a>,
+što nam dopušta da koristimo <code>range</code> preko
+bilo čega!</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +47,7 @@ which lets us range over pretty much anything!</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/JsdFcZac4E-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Rwx0UAW2tWu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -67,11 +68,11 @@ which lets us range over pretty much anything!</p>
         
         <tr>
           <td class="docs">
-            <p>Let&rsquo;s look at the <code>List</code> type from the
-<a href="generics">previous example</a> again. In that example
-we had an <code>AllElements</code> method that returned a slice
-of all elements in the list. With Go iterators, we
-can do it better - as shown below.</p>
+            <p>Pogledajmo tip <code>List</code> iz
+<a href="generics">prethodnog primera</a> opet. U tom
+primeru smo imali <code>AllElements</code> metodu koja vraća
+slice svih elemenata u listi. Sa Go iteratorima,
+možemo uraditi bolje - kao što je prikazano.</p>
 
           </td>
           <td class="code leading">
@@ -115,8 +116,8 @@ can do it better - as shown below.</p>
         
         <tr>
           <td class="docs">
-            <p>All returns an <em>iterator</em>, which in Go is a function
-with a <a href="https://pkg.go.dev/iter#Seq">special signature</a>.</p>
+            <p>Funkcija All vraća <em>iterator</em>, on je u Go-u ustvari funkcija
+sa <a href="https://pkg.go.dev/iter#Seq">posebnim potpisom</a>.</p>
 
           </td>
           <td class="code leading">
@@ -128,11 +129,11 @@ with a <a href="https://pkg.go.dev/iter#Seq">special signature</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>The iterator function takes another function as
-a parameter, called <code>yield</code> by convention (but
-the name can be arbitrary). It will call <code>yield</code> for
-every element we want to iterate over, and note <code>yield</code>&rsquo;s
-return value for a potential early termination.</p>
+            <p>Iterator funkcija uzima za parametar drugu funkciju,
+nazvaćemo je <code>yield</code> po konvenciji (ali
+ime je arbitrarno). Iterator funkc. će zvati <code>yield</code> za
+svaki element koji želimo da iteriramo, i primetimo <code>yield</code>-ovu
+return vrednost za prevremenu terminaciju.</p>
 
           </td>
           <td class="code leading">
@@ -149,10 +150,10 @@ return value for a potential early termination.</p>
         
         <tr>
           <td class="docs">
-            <p>Iteration doesn&rsquo;t require an underlying data structure,
-and doesn&rsquo;t even have to be finite! Here&rsquo;s a function
-returning an iterator over Fibonacci numbers: it keeps
-running as long as <code>yield</code> keeps returning <code>true</code>.</p>
+            <p>Iteracija ne zahteva bilo kakvu strukturu podataka,
+čak ne mora biti ni konačna! Evo jedne funkcija koja
+vraća iterator preko Fibonacci-evih brojeva: ona se
+vrti u loop-u dok god <code>yield</code> vraća <code>true</code>.</p>
 
           </td>
           <td class="code leading">
@@ -196,8 +197,8 @@ running as long as <code>yield</code> keeps returning <code>true</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>List.All</code> returns an iterator, we can use it
-in a regular <code>range</code> loop.</p>
+            <p>Zbog toga što <code>List.All</code> vraća iterator, možemo je
+koristiti regularno u <code>range</code> loop-u.</p>
 
           </td>
           <td class="code leading">
@@ -210,10 +211,10 @@ in a regular <code>range</code> loop.</p>
         
         <tr>
           <td class="docs">
-            <p>Packages like <a href="https://pkg.go.dev/slices">slices</a> have
-a number of useful functions to work with iterators.
-For example, <code>Collect</code> takes any iterator and collects
-all its values into a slice.</p>
+            <p>Paketi kao <a href="https://pkg.go.dev/slices">slices</a> imaju
+brojne korisne funkcije za rad sa iteratorima.
+Na primer, <code>Collect</code> uzima bilo koji iterator i
+čuva sve njegove vrednosti u slice.</p>
 
           </td>
           <td class="code leading">
@@ -235,8 +236,8 @@ all its values into a slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Once the loop hits <code>break</code> or an early return, the <code>yield</code> function
-passed to the iterator will return <code>false</code>.</p>
+            <p>Jednom kada loop vidi <code>break</code> ili rani <code>return</code>, funkcija <code>yield</code>
+data iteratoru će vratiti <code>false</code>.</p>
 
           </td>
           <td class="code">

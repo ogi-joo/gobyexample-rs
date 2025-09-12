@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>Basic sends and receives on channels are blocking.
-However, we can use <code>select</code> with a <code>default</code> clause to
-implement <em>non-blocking</em> sends, receives, and even
-non-blocking multi-way <code>select</code>s.</p>
+            <p>Klasično slanje i primanje preko kanala blokira.
+Međutim, možemo da koristimo <code>select</code> sa <code>default</code> klauzulom
+i omogućimo <em>deblokirana</em> slanja, primanja, i
+deblokirani više-smerni <code>select</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ non-blocking multi-way <code>select</code>s.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TFv6-7OVNVq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/S7X_0dAv92F"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,10 +76,10 @@ non-blocking multi-way <code>select</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a non-blocking receive. If a value is
-available on <code>messages</code> then <code>select</code> will take
-the <code>&lt;-messages</code> <code>case</code> with that value. If not
-it will immediately take the <code>default</code> case.</p>
+            <p>Ovo je deblokirano primanje. Ako je vrednost
+dostupna na <code>messages</code> onda će <code>select</code> uzeti
+slučaj <code>&lt;-messages</code> sa tom vrednošću. Ako nema
+on će se odmah prebaciti na <code>default</code> slučaj.</p>
 
           </td>
           <td class="code leading">
@@ -95,10 +95,10 @@ it will immediately take the <code>default</code> case.</p>
         
         <tr>
           <td class="docs">
-            <p>A non-blocking send works similarly. Here <code>msg</code>
-cannot be sent to the <code>messages</code> channel, because
-the channel has no buffer and there is no receiver.
-Therefore the <code>default</code> case is selected.</p>
+            <p>Deblokirano slanje radi slično. Ovde, <code>msg</code>
+ne može da se pošalje na kanal <code>messages</code> zato
+što kanal nema bafer i ne postoji risiver.
+<code>Default</code> slučaj je izabran.</p>
 
           </td>
           <td class="code leading">
@@ -115,10 +115,10 @@ Therefore the <code>default</code> case is selected.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use multiple <code>case</code>s above the <code>default</code>
-clause to implement a multi-way non-blocking
-select. Here we attempt non-blocking receives
-on both <code>messages</code> and <code>signals</code>.</p>
+            <p>Možemo imati više <code>slučajeva</code> iznad <code>default</code>-a
+klauzule da implementiramo više-smerni deblokirani
+select. Ovde pokušavamo da primimo na oba
+kanala <code>messages</code> i <code>signals</code>.</p>
 
           </td>
           <td class="code">

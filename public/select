@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <em>select</em> lets you wait on multiple channel
-operations. Combining goroutines and channels with
-select is a powerful feature of Go.</p>
+            <p>Go-ov <em>select</em> nam omogućava da čekamo na više
+operacija kanala. Kombinovanje go-rutina i kanala
+sa select-om je moćna stvar u Go-u.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ select is a powerful feature of Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/dOrjUfgGwB2"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/dV7AiwEpbG5"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,7 +76,7 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example we&rsquo;ll select across two channels.</p>
+            <p>U našem primeru ćemo selektovati preko 2 kanala.</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +88,9 @@ select is a powerful feature of Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Each channel will receive a value after some amount
-of time, to simulate e.g. blocking RPC operations
-executing in concurrent goroutines.</p>
+            <p>Oba kanala će dobiti vrednost posle nekog vremena,
+ovako demonstriramo npr. asinhrone pozive
+koji se izvršavaju u istovremenim go-rutinama.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +108,8 @@ executing in concurrent goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use <code>select</code> to await both of these values
-simultaneously, printing each one as it arrives.</p>
+            <p>Koristimo <code>select</code> za čekanje obe ove vrednosti
+istovremeno, ispisivajući kako koja stigne.</p>
 
           </td>
           <td class="code">
@@ -132,8 +132,8 @@ simultaneously, printing each one as it arrives.</p>
         
         <tr>
           <td class="docs">
-            <p>We receive the values <code>&quot;one&quot;</code> and then <code>&quot;two&quot;</code> as
-expected.</p>
+            <p>Vraća nam se vrednost <code>&quot;one&quot;</code> pa <code>&quot;two&quot;</code> kao
+što smo očekivali.</p>
 
           </td>
           <td class="code leading">
@@ -146,9 +146,8 @@ expected.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the total execution time is only ~2 seconds
-since both the 1 and 2 second <code>Sleeps</code> execute
-concurrently.</p>
+            <p>Primetimo da je ukupno vreme izvršenja ~2 sekunde
+jer obe 1 i 2 sekunde izvršavaju <code>Sleeps</code> istovremeno.</p>
 
           </td>
           <td class="code">

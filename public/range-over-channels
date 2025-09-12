@@ -30,10 +30,10 @@
         
         <tr>
           <td class="docs">
-            <p>In a <a href="range-over-built-in-types">previous</a> example we saw how <code>for</code> and
-<code>range</code> provide iteration over basic data structures.
-We can also use this syntax to iterate over
-values received from a channel.</p>
+            <p>U <a href="range-over-built-in-types">prethodnom</a> range primeru,
+videli smo kako <code>for</code> i <code>range</code> mogu da iteriraju preko klasičnih
+data struktura. Ove sintakse možemo takođe koristiti i za
+iteriranje preko vrednosti kanala!</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ values received from a channel.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/8vAhX6eX1wy"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zCPGUKymijV"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,7 +74,7 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll iterate over 2 values in the <code>queue</code> channel.</p>
+            <p>Iteriraćemo preko 2 vrednosti u <code>queue</code> kanalu.</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +88,10 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>range</code> iterates over each element as it&rsquo;s
-received from <code>queue</code>. Because we <code>close</code>d the
-channel above, the iteration terminates after
-receiving the 2 elements.</p>
+            <p>Ovaj <code>range</code> iterira preko svakog elementa koji
+se prima iz <code>queue</code>. Zbog toga što smo zatvorili
+kanal gore, iteracija staje nakon što primi
+2 elementa iz kanala.</p>
 
           </td>
           <td class="code">
@@ -121,9 +121,9 @@ receiving the 2 elements.</p>
         
         <tr>
           <td class="docs">
-            <p>This example also showed that it&rsquo;s possible to close
-a non-empty channel but still have the remaining
-values be received.</p>
+            <p>U ovom primeru smo takođe videli da se kanal koji
+nije prazan i dalje može zatvoriti, a da mu
+vrednosti ostanu slobodne za preuzimanje.</p>
 
           </td>
           <td class="code empty">

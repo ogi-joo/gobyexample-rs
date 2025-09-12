@@ -30,10 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Channels</em> are the pipes that connect concurrent
-goroutines. You can send values into channels from one
-goroutine and receive those values into another
-goroutine.</p>
+            <p><em>Kanali, Channels</em> su &ldquo;cevi&rdquo; koje spajaju istovremene
+go-rutine. Možemo da šaljemo vrednosti iz jedne
+go-rutine i prihvatimo iste u drugim go-rutinama.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +46,7 @@ goroutine.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/MaLY7AiAkHM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/thUxjniwyHe"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,8 +73,9 @@ goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>Create a new channel with <code>make(chan val-type)</code>.
-Channels are typed by the values they convey.</p>
+            <p>Pravimo novi kanal sa <code>make(chan val-type)</code>.
+Kanali su tipovani u odnosu na vrednost koju
+prenose.</p>
 
           </td>
           <td class="code leading">
@@ -86,9 +86,9 @@ Channels are typed by the values they convey.</p>
         
         <tr>
           <td class="docs">
-            <p><em>Send</em> a value into a channel using the <code>channel &lt;-</code>
-syntax. Here we send <code>&quot;ping&quot;</code>  to the <code>messages</code>
-channel we made above, from a new goroutine.</p>
+            <p><em>Šaljemo</em> vrednost u kanal koristeći <code>channel &lt;-</code>
+sintaksu. Ovde, šaljemo <code>&quot;ping&quot;</code> u <code>messages</code>
+kanal koji smo gore napravili iz nove go-rutine.</p>
 
           </td>
           <td class="code leading">
@@ -99,9 +99,9 @@ channel we made above, from a new goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-channel</code> syntax <em>receives</em> a value from the
-channel. Here we&rsquo;ll receive the <code>&quot;ping&quot;</code> message
-we sent above and print it out.</p>
+            <p>Sintaksa <code>&lt;-channel</code> <em>prima</em> vrednost iz kanala.
+Ovde, primamo <code>&quot;ping&quot;</code> poruku koju smo poslali
+gore i ispisujemo je.</p>
 
           </td>
           <td class="code">
@@ -118,9 +118,9 @@ we sent above and print it out.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run the program the <code>&quot;ping&quot;</code> message is
-successfully passed from one goroutine to another via
-our channel.</p>
+            <p>Kada pokrenemo program, <code>&quot;ping&quot;</code> poruka je
+uspešno poslata iz jedne go-rutine u drugu
+go-rutinu pomoću našeg kanala.</p>
 
           </td>
           <td class="code leading">
@@ -132,10 +132,11 @@ our channel.</p>
         
         <tr>
           <td class="docs">
-            <p>By default sends and receives block until both the
-sender and receiver are ready. This property allowed
-us to wait at the end of our program for the <code>&quot;ping&quot;</code>
-message without having to use any other synchronization.</p>
+            <p>Po default-u, funkcije slanja i primanja zaustavljaju
+se dok obe nisu spremne. Ovo nam je omogućilo da
+korektno sačekamo kraj našeg programa za <code>&quot;ping&quot;</code>
+poruku, a da ne moramo da koristimo neku drugu
+sinhronizaciju.</p>
 
           </td>
           <td class="code empty">

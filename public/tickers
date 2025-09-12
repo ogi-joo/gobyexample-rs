@@ -30,11 +30,11 @@
         
         <tr>
           <td class="docs">
-            <p><a href="timers">Timers</a> are for when you want to do
-something once in the future - <em>tickers</em> are for when
-you want to do something repeatedly at regular
-intervals. Here&rsquo;s an example of a ticker that ticks
-periodically until we stop it.</p>
+            <p><a href="timers">Tajmeri</a> su za kada želimo nešto da
+uradimo u budućnosti - <em>ticker-i</em> su kada
+želimo nešto da uradimo sa ponavljanjem u regularnim
+intervalima. Ovo je primer ticker-a koji periodično
+&ldquo;kuca&rdquo; (tick) dok ga ne zaustavimo.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ periodically until we stop it.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gs6zoJP-Pl9"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/IG_xtvNtkk0"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +78,10 @@ periodically until we stop it.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers use a similar mechanism to timers: a
-channel that is sent values. Here we&rsquo;ll use the
-<code>select</code> builtin on the channel to await the
-values as they arrive every 500ms.</p>
+            <p>Ticker-i imaju sličan mehanizam kao tajmeri:
+kanal kome se šalju vrednosti. Ovde ćemo da
+koristimo ugrađeni <code>select</code> da čekamo
+vrednosti koje pristižu svakih 500ms.</p>
 
           </td>
           <td class="code leading">
@@ -112,9 +112,9 @@ values as they arrive every 500ms.</p>
         
         <tr>
           <td class="docs">
-            <p>Tickers can be stopped like timers. Once a ticker
-is stopped it won&rsquo;t receive any more values on its
-channel. We&rsquo;ll stop ours after 1600ms.</p>
+            <p>Ticker-i se mogu stopirati kao tajmeri. Jednom kada
+je stopiran, ticker neće primati više vrednosti na
+njegov kanal. Zaustavićemo naš nakon 1600ms.</p>
 
           </td>
           <td class="code">
@@ -133,8 +133,8 @@ channel. We&rsquo;ll stop ours after 1600ms.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program the ticker should tick 3 times
-before we stop it.</p>
+            <p>Kada pokrenemo ovaj program, ticker će
+ispisati poruku 3 puta pre nego stane.</p>
 
           </td>
           <td class="code">

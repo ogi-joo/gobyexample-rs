@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p><em>Zatvaranje</em> kanala znači da se vrednosti
+više ne mogu slati. Ovo je korisno da označimo
+završetak kanala našim risiverima.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yZijZHYe22y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/F4Bi5P9uFaD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,10 +63,10 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>U ovom primeru koristićemo kanal <code>jobs</code>
+da objavimo završetak <code>main()</code> go-rutine.
+Kada više ne budemo imali task-ove za
+naše worker-e <code>zatvorićemo</code> kanal <code>jobs</code>.</p>
 
           </td>
           <td class="code leading">
@@ -79,13 +79,13 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>Ovo je go-rutina. Ona non-stop prima taskove
+iz <code>jobs</code> sa <code>j, more := &lt;-jobs</code>. U ovoj
+formi primanja sa dve vrednosti, vrednost <code>more</code>
+će biti <code>false</code> ako je <code>jobs</code> zatvoren i sve
+vrednosti u kanalu su primljene.
+Koristimo ovu prednost da pošaljemo vrednost u
+<code>done</code> kada su svi taskovi iz <code>jobs</code> gotovi.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +107,8 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>Ovde šaljemo 3 &ldquo;posla&rdquo; na worker preko
+kanala <code>jobs</code> i potom ga zatvaramo.</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +124,9 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>Čekamo <code>done</code> kanal pomoću tehnike
+<a href="channel-synchronization">sinhronizacije</a> koju smo
+ranije videli.</p>
 
           </td>
           <td class="code leading">
@@ -137,13 +137,11 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading from a closed channel succeeds immediately,
-returning the zero value of the underlying type.
-The optional second return value is <code>true</code> if the
-value received was delivered by a successful send
-operation to the channel, or <code>false</code> if it was a
-zero value generated because the channel is closed
-and empty.</p>
+            <p>Čitanje iz zatvorenog kanala je odmah uspešno,
+vraćajući <code>zero-valued</code> vrednost neke vrednosti (ovde <code>int</code>).
+Opcionalni drugi parametar je <code>true</code> ako je
+vrednost primljena nakon uspešnog slanja na kanal,
+ili <code>false</code> ako je kanal zatvoren i prazan.</p>
 
           </td>
           <td class="code">
@@ -179,8 +177,8 @@ and empty.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Sama ideja o zatvaranju kanala nas vodi do sledeće
+teme: <code>range</code> preko kanala.</p>
 
           </td>
           <td class="code empty">

@@ -30,8 +30,8 @@
         
         <tr>
           <td class="docs">
-            <p>To wait for multiple goroutines to finish, we can
-use a <em>wait group</em>.</p>
+            <p>Da bi čekali na više go-rutina da se završe,
+možemo da koristimo <em>wait grupe</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ use a <em>wait group</em>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/csaELahJTWt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/1yXxheYUq7N"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -66,7 +66,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in every goroutine.</p>
+            <p>Ovo je worker koga ćemo pokretati na svaku go-rutinu.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +78,7 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sleep to simulate an expensive task.</p>
+            <p>Sleep da simuliramo skupi task.</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +101,10 @@ use a <em>wait group</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>This WaitGroup is used to wait for all the
-goroutines launched here to finish. Note: if a WaitGroup is
-explicitly passed into functions, it should be done <em>by pointer</em>.</p>
+            <p>Ovaj WaitGroup se koristi da čeka sve pokrenute
+go-rutine da se završe. Bitno: ako je WaitGroup
+eksplicitno prosleđena funkciji, moramo to uraditi
+<em>preko pokazivača</em>.</p>
 
           </td>
           <td class="code leading">
@@ -114,7 +115,9 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Launch several goroutines using <code>WaitGroup.Go</code></p>
+            <p>Pokrećemo više go-rutina pomoću <code>WaitGroup.Go</code>.
+Ova metoda nije dostupna u starijim verzijama,
+budite sigurni da koristite najnoviju Go verziju.</p>
 
           </td>
           <td class="code leading">
@@ -129,9 +132,9 @@ explicitly passed into functions, it should be done <em>by pointer</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until all the goroutines started by <code>wg</code> are
-done. A goroutine is done when the function it invokes
-returns.</p>
+            <p>Blokiramo dok se sve go-rutine pokrenute od strane <code>wg</code>
+ne završe. Go-rutina se završi kada interna funkcija
+vrati - <code>returns</code>.</p>
 
           </td>
           <td class="code leading">
@@ -142,10 +145,10 @@ returns.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that this approach has no straightforward way
-to propagate errors from workers. For more
-advanced use cases, consider using the
-<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup package</a>.</p>
+            <p>Primetimo da ovaj pristup nam ne daje laganu
+propagaciju grešaka od worker-a. Za komplikovanije
+primere, možemo koristiti
+<a href="https://pkg.go.dev/golang.org/x/sync/errgroup">errgroup paket</a>.</p>
 
           </td>
           <td class="code">
@@ -180,8 +183,8 @@ advanced use cases, consider using the
         
         <tr>
           <td class="docs">
-            <p>The order of workers starting up and finishing
-is likely to be different for each invocation.</p>
+            <p>Redosled započinjanja i završetka task-ova
+je verovatno drugačiji na svakom pokretanju.</p>
 
           </td>
           <td class="code empty">
