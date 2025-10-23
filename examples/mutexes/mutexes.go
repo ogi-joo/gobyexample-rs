@@ -1,6 +1,6 @@
-// In the previous example we saw how to manage simple
-// counter state using [atomic operations](atomic-counters).
-// For more complex state we can use a [_mutex_](https://en.wikipedia.org/wiki/Mutual_exclusion)
+// U prethodnom primeru videli smo kako manipulisati stanje
+// brojača pomoću [atomskih operacija](atomic-counters).
+// Za kompleksnija stanja možemo koristiti [_mutex_](https://en.wikipedia.org/wiki/Mutual_exclusion)
 // to safely access data across multiple goroutines.
 
 package main

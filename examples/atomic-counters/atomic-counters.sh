@@ -1,12 +1,9 @@
-# We expect to get exactly 50,000 operations. Had we
-# used a non-atomic integer and incremented it with
-# `ops++`, we'd likely get a different number,
-# changing between runs, because the goroutines
-# would interfere with each other. Moreover, we'd
-# get data race failures when running with the
-# `-race` flag.
+# Očekujemo da imamo tačno 50,000 operacija. Da smo 
+# koristili ne-atomski integer, i onda ga povećavali
+# sa `ops++`, verovatno bismo dobili drugačiju brojku.
+# Na ovaj način go-rutine se ne sudaraju međusobno.
 $ go run atomic-counters.go
 ops: 50000
 
-# Next we'll look at mutexes, another tool for managing
-# state.
+# Sledeće što ćemo proći su mutex-i, još jedan alat
+# za manipulaciju stanja u Go-u.
